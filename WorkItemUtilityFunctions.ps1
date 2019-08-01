@@ -112,6 +112,43 @@ $body = @"
 	Invoke-RestMethod -Uri $url -Method Post -ContentType "application/json-patch+json" -Headers $header -Body $body
 }
 
+function Create-TaskForWorkItem
+{
+	param([string]$org, [string]$project, [string]$PAT, [string]$title, [string]$description, [string]$WorkItemUrl)
+$body = @"
+[
+  {
+    "op": "add",
+    "path": "/fields/System.Title",
+    "from": null,
+    "value": "$title"
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.Description",
+    "value": "$description"
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.History",
+    "value": "created by powershell script"
+  },
+  {
+    "op": "add",
+    "path": "/relations/-",
+    "value": {
+        "rel": "System.LinkTypes.Hierarchy-Reverse",
+        "url": "$WorkItemUrl"
+      }
+  }
+]
+"@
+	$header = Create-Header $PAT
+	$url = $org + "/" + $project + '/_apis/wit/workitems/$Task?api-version=5.0'  
+	Write-Host "calling : " + $url
+	Invoke-RestMethod -Uri $url -Method Post -ContentType "application/json-patch+json" -Headers $header -Body $body
+}
+
 function Write-HostWorkItemList($workItems)
 {
 	foreach($workItem in $workItems.value)

@@ -7,8 +7,11 @@ Some functions to call rest API showing some of the functionality.  Complete doc
 https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/?view=azure-devops-server-rest-5.0  
 https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work%20items/update?view=azure-devops-server-rest-5.0  
 
-## Sample Function Calls
+## SampleFunctionCalls.ps1
 Some sample calls to the functions in WorkItemUtilityFunctions.ps1
+
+## VisualStudioSolution File
+These are not needed to run the scripts but are there to help debugging etc.
 
 ## PrivateData.ps1
 This contains three functions that return strings.  Not published as part of project.  Enter data directly if you like.

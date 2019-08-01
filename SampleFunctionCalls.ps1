@@ -44,6 +44,10 @@ Write-HostWorkItem $newPBI
 #Demo 5
 Write-Host ""
 Write-Host "Demo 5 - Create a task as a child of previously created Product Backlog Item" -ForegroundColor Yellow
-Write-Host "This is useful for adding Definition of Done tasks by script to PBI" -ForegroundColor Yellow
+Write-Host "I use this to add a list of standard tasks to a PBI.  For example Release Tasks or Definition of Done tasks" -ForegroundColor Yellow
+$title = "Sample Task Added to Product Backlog Item - Demo 5"
+$description = "<div>Time : " + [System.DateTime]::Now.ToLongDateString() + " : " + [System.DateTime]::Now.ToLongTimeString() + "</div>"
+$newTask = Create-TaskForWorkItem $orgUrl $project $personalToken $title $description $newPBI.url
+Write-HostWorkItem $newTask
 
 Read-Host "press any key"
