@@ -1,6 +1,6 @@
 # Azure Devops Work Items REST with Powershell
-This project contains some sample functions that allows you to call the REST api via powershell
-Meant as a quick start to get you started rather than a complete library.
+This project contains some sample functions that allows you to call the REST api via powershell.  
+Its meant as a quick start to get you going rather than a complete library.
 
 ## WorkItemUtilityFunctions.ps1
 Some functions to call rest API showing some of the functionality.  Complete documentation here.  
