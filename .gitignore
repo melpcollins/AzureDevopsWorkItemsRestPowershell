@@ -6,3 +6,5 @@
 /.vs/AzureDevopsWorkItemsRestPowershell/v15
 /PrivateData.ps1
 /GetActiveTeamPBIs.ps1
+/Data.csv
+/Data.xlsx

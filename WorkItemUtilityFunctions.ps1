@@ -112,6 +112,39 @@ $body = @"
 	Invoke-RestMethod -Uri $url -Method Post -ContentType "application/json-patch+json" -Headers $header -Body $body
 }
 
+function Create-ProductBacklogItemEffort
+{
+	param([string]$org, [string]$project, [string]$PAT, [string]$title, [string]$description, [string]$effort)
+$body = @"
+[
+  {
+    "op": "add",
+    "path": "/fields/System.Title",
+    "from": null,
+    "value": "$title"
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.Description",
+    "value": "$description"
+  },
+  {
+    "op": "add",
+    "path": "/fields/Microsoft.VSTS.Scheduling.Effort",
+    "value": "$effort"
+  },
+  {
+    "op": "add",
+    "path": "/fields/System.History",
+    "value": "created by powershell script"
+  }
+]
+"@
+	$header = Create-Header $PAT
+	$url = $org + "/" + $project + '/_apis/wit/workitems/$Product Backlog Item?api-version=5.0' #see $Product Backlog Item.. to create Bug.
+	Write-Host "calling : " + $url
+	Invoke-RestMethod -Uri $url -Method Post -ContentType "application/json-patch+json" -Headers $header -Body $body
+}
 function Create-TaskForWorkItem
 {
 	param([string]$org, [string]$project, [string]$PAT, [string]$title, [string]$description, [string]$WorkItemUrl)

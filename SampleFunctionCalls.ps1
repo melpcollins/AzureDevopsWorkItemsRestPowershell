@@ -11,14 +11,14 @@ cls
 #Demo 1
 Write-Host ""
 Write-Host "Demo 1 - Read existing Work Item from Azure Devops (Ids 1,2)" -ForegroundColor Yellow
-$workItemIds = "1,2" #ids of Work Items comma seperated.
+$workItemIds = "4,7" #ids of Work Items comma seperated.
 $workItemList = Get-WorkItems $orgUrl $project $personalToken $workItemIds
 Write-HostWorkItemList $workItemList
 
 #Demo 2
 Write-Host ""
 Write-Host "Demo 2 - Update existing Work Item (Id 1) from Azure Devops" -ForegroundColor Yellow
-$workItemId = "1"
+$workItemId = "4"
 $newDescription = "<div>Time : " + [System.DateTime]::Now.ToLongDateString() + " : " + [System.DateTime]::Now.ToLongTimeString() + "</div>"
 $historyUpdate = "updated description with current time via Powershell"
 $updatedWorkItem = Update-WorkItemDescription $orgUrl $project $personalToken $workItemId $newDescription $historyUpdate
