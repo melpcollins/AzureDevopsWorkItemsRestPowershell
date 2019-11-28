@@ -33,6 +33,7 @@
     <Compile Include="SampleFunctionCalls.ps1" />
     <Compile Include="GetActiveTeamPBIs.ps1" />
     <Compile Include="PrivateData.ps1" />
+    <Compile Include="Script1.ps1" />
     <Compile Include="WorkItemUtilityFunctions.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
